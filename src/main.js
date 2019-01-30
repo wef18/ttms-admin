@@ -5,6 +5,10 @@ import store from './store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
+import MainHeader from './components/MainHeader.vue'
+
+//组件注册
+Vue.component('main-header',MainHeader)
 
 /*插件和全局对象的*/
 //注册ElementUI插件
@@ -48,9 +52,15 @@ Vue.filter('currency', (val)=>{
   //把int转换为¥xx.yy
   return '¥' + val.toFixed(2)
 })
+Vue.filter('tableStatus',(val)=>{
+  if(val == 1) return '空闲'
+  else if(val == 2) return '预订'
+  else if(val == 3) return '占用'
+  else return '其他'
+})
 
 new Vue({
   router,
-  store,
+  store, //指定当前项目唯一的Vuex存储仓库对象，其中保存着可供所有组件使用的数据
   render: h => h(App)
 }).$mount('#app')

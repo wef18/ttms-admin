@@ -1,5 +1,12 @@
 <template>
-  <div class="notfound">
-    <h1>This is an notfound page</h1>
+  <div class="ttms-notfound">
+    <h1>404! Not Found!</h1>
   </div>
 </template>
+
+<style lang="scss">
+  .ttms-notfound {
+    text-align: center;
+    padding-top: 300px;
+  }
+</style>
